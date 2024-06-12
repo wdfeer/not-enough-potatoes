@@ -13,10 +13,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "org.wdfeer.notenoughpotatoes.client.Not_enough_potatoesClient"
+      "org.wdfeer.notenoughpotatoes.client.PotatoModClient"
     ],
     "main": [
-      "org.wdfeer.notenoughpotatoes.Not_enough_potatoes"
+      "org.wdfeer.notenoughpotatoes.PotatoMod"
     ]
   },
   "depends": {
