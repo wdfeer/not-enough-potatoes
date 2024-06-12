@@ -2,19 +2,23 @@
   "schemaVersion": 1,
   "id": "not-enough-potatoes",
   "version": "${version}",
-
   "name": "not-enough-potatoes",
   "description": "",
   "authors": [],
-  "contact": {},
-
+  "contact": {
+    "repo": "https://github.com/wdfeer/not-enough-potatoes"
+  },
   "license": "GPL-3.0",
   "icon": "assets/not-enough-potatoes/icon.png",
-
   "environment": "*",
-  "entrypoints": {},
-
-
+  "entrypoints": {
+    "client": [
+      "org.wdfeer.notenoughpotatoes.client.Not_enough_potatoesClient"
+    ],
+    "main": [
+      "org.wdfeer.notenoughpotatoes.Not_enough_potatoes"
+    ]
+  },
   "depends": {
     "fabricloader": ">=${loader_version}",
     "minecraft": "${minecraft_version}"
