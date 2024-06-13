@@ -3,11 +3,11 @@
   "minVersion": "0.8",
   "package": "org.wdfeer.not_enough_potatoes.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
-  "client": [],
-  "server": [
+  "mixins": [
     "ItemMixin"
   ],
+  "client": [],
+  "server": [],
   "injectors": {
     "defaultRequire": 1
   }
