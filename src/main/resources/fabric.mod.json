@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "notenoughpotatoes",
+  "id": "not_enough_potatoes",
   "version": "${version}",
   "name": "Not enough Potatoes",
   "description": "",
@@ -9,14 +9,14 @@
     "repo": "https://github.com/wdfeer/not-enough-potatoes"
   },
   "license": "GPL-3.0",
-  "icon": "assets/notenoughpotatoes/icon.png",
+  "icon": "assets/not_enough_potatoes/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "org.wdfeer.notenoughpotatoes.client.PotatoModClient"
+      "org.wdfeer.not_enough_potatoes.client.PotatoModClient"
     ],
     "main": [
-      "org.wdfeer.notenoughpotatoes.PotatoMod"
+      "org.wdfeer.not_enough_potatoes.PotatoMod"
     ]
   },
   "depends": {
@@ -25,6 +25,6 @@
     "fabric-api": "*"
   },
   "mixins": [
-    "notenoughpotatoes.mixins.json"
+    "not_enough_potatoes.mixins.json"
   ]
 }

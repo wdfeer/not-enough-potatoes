@@ -1,4 +1,4 @@
-package org.wdfeer.notenoughpotatoes.client;
+package org.wdfeer.not_enough_potatoes.client;
 
 import net.fabricmc.api.ClientModInitializer;
 

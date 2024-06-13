@@ -1,4 +1,4 @@
-package org.wdfeer.notenoughpotatoes.mixin;
+package org.wdfeer.not_enough_potatoes.mixin;
 
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
@@ -13,8 +13,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.wdfeer.notenoughpotatoes.PotatoArmorPiece;
-import org.wdfeer.notenoughpotatoes.PotatoMod;
+import org.wdfeer.not_enough_potatoes.PotatoArmorPiece;
+import org.wdfeer.not_enough_potatoes.PotatoMod;
 
 @Mixin(Item.class)
 public class ItemMixin {
