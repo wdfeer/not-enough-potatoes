@@ -14,19 +14,17 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.wdfeer.notenoughpotatoes.PotatoArmorPiece;
+import org.wdfeer.notenoughpotatoes.PotatoMod;
 
 @Mixin(Item.class)
 public class ItemMixin {
-    @Inject(method = "use", at = @At("HEAD"))
+    @Inject(method = "use(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/TypedActionResult;", at = @At("HEAD"))
     private void injectItemUse(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir){
+        PotatoMod.LOGGER.info("Calling \"use\" method injection");
+
         ItemStack itemStack = user.getStackInHand(hand);
-        FoodComponent foodComponent = (FoodComponent)itemStack.get(DataComponentTypes.FOOD);
-        if (itemStack.getItem() == Items.POTATO && foodComponent != null && user.canConsume(foodComponent.canAlwaysEat())) {
-            user.getArmorItems().forEach((ItemStack s) -> {
-                if (s.getItem() instanceof PotatoArmorPiece potatoArmor) {
-                    potatoArmor.OnPotatoEaten(s);
-                }
-            });
+        if (itemStack.isOf(Items.POTATO)) {
+            PotatoArmorPiece.OnPotatoEaten(user);
         }
     }
 }
