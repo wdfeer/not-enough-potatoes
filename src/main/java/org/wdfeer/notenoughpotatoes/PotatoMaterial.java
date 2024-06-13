@@ -5,8 +5,10 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
 
@@ -29,6 +31,6 @@ public class PotatoMaterial {
                 0F,
                 0F);
 
-        armorMaterialRegistryEntry = Registries.ARMOR_MATERIAL.createEntry(armorMaterial);
+        Registry.register(Registries.ARMOR_MATERIAL, new Identifier(PotatoMod.MOD_ID, "potato_material"), armorMaterial);
     }
 }
