@@ -6,15 +6,14 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class PotatoMaterial {
-    public static ArmorMaterial armorMaterial;
-    public static RegistryEntry<ArmorMaterial> armorMaterialRegistryEntry;
+    public static ArmorMaterial material;
 
     public static void Initialize(){
         HashMap<ArmorItem.Type, Integer> defenseMap = new HashMap<>();
@@ -23,14 +22,16 @@ public class PotatoMaterial {
         defenseMap.put(ArmorItem.Type.LEGGINGS, 2);
         defenseMap.put(ArmorItem.Type.BOOTS, 1);
 
-        armorMaterial = new ArmorMaterial(defenseMap,
+        material = new ArmorMaterial(defenseMap,
                 8,
                 SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
                 () -> Ingredient.ofItems(Items.POTATO),
-                null,
+                List.of(new ArmorMaterial.Layer[]{
+                        new ArmorMaterial.Layer(new Identifier(PotatoMod.MOD_ID, "potato_armor"))
+                }),
                 0F,
                 0F);
 
-        Registry.register(Registries.ARMOR_MATERIAL, new Identifier(PotatoMod.MOD_ID, "potato_material"), armorMaterial);
+        Registry.register(Registries.ARMOR_MATERIAL, new Identifier(PotatoMod.MOD_ID, "potato_armor_material"), material);
     }
 }

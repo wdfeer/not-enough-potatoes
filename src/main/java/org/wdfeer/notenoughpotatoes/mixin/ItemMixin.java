@@ -24,7 +24,7 @@ public class ItemMixin {
         if (itemStack.getItem() == Items.POTATO && foodComponent != null && user.canConsume(foodComponent.canAlwaysEat())) {
             user.getArmorItems().forEach((ItemStack s) -> {
                 if (s.getItem() instanceof PotatoArmorPiece potatoArmor) {
-                    potatoArmor.OnPotatoEaten();
+                    potatoArmor.OnPotatoEaten(s);
                 }
             });
         }
