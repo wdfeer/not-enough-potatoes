@@ -26,15 +26,15 @@ public class PotatoArmorPiece extends ArmorItem {
         super(new PotatoMaterial(), slot, new Settings().group(ItemGroup.COMBAT));
     }
 
-    public static void OnPotatoEaten(World world, PlayerEntity user){
+    public static void OnPotatoEaten(PlayerEntity user){
         user.getArmorItems().forEach(armor ->{
             if (armor.getItem() instanceof PotatoArmorPiece potatoArmorPiece)
-                potatoArmorPiece.OnPotatoEaten(world, armor);
+                potatoArmorPiece.OnPotatoEaten(armor);
         });
     }
 
     final UUID ARMOR_ATTRIBUTE_UUID = UUID.nameUUIDFromBytes("potato_armor".getBytes());
-    private void OnPotatoEaten(World world, ItemStack stack){
+    private void OnPotatoEaten(ItemStack stack){
         NbtCompound nbt = stack.getOrCreateNbt();
         int potatoes = nbt.getInt("potatoes_eaten") + 1;
         nbt.putInt("potatoes_eaten", potatoes);
@@ -46,6 +46,8 @@ public class PotatoArmorPiece extends ArmorItem {
 
         nbt.remove("AttributeModifiers");
         stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR, modifier, slot);
+
+        stack.setDamage(0);
     }
 
     @Override
