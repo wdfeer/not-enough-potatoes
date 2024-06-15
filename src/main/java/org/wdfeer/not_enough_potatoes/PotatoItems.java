@@ -1,10 +1,10 @@
 package org.wdfeer.not_enough_potatoes;
 
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class PotatoItems {
     public static Item[] items;
@@ -15,10 +15,10 @@ public class PotatoItems {
 
     public static void Initialize(){
         items = new Item[] {
-                Registry.register(Registries.ITEM, GetIdentifier("potato_helmet"), new PotatoArmorPiece(ArmorItem.Type.HELMET)),
-                Registry.register(Registries.ITEM, GetIdentifier("potato_chestplate"), new PotatoArmorPiece(ArmorItem.Type.CHESTPLATE)),
-                Registry.register(Registries.ITEM, GetIdentifier("potato_leggings"), new PotatoArmorPiece(ArmorItem.Type.LEGGINGS)),
-                Registry.register(Registries.ITEM, GetIdentifier("potato_boots"), new PotatoArmorPiece(ArmorItem.Type.BOOTS))
+                Registry.register(Registry.ITEM, GetIdentifier("potato_helmet"), new PotatoArmorPiece(EquipmentSlot.HEAD)),
+                Registry.register(Registry.ITEM, GetIdentifier("potato_chestplate"), new PotatoArmorPiece(EquipmentSlot.CHEST)),
+                Registry.register(Registry.ITEM, GetIdentifier("potato_leggings"), new PotatoArmorPiece(EquipmentSlot.LEGS)),
+                Registry.register(Registry.ITEM, GetIdentifier("potato_boots"), new PotatoArmorPiece(EquipmentSlot.FEET))
         };
     }
 }

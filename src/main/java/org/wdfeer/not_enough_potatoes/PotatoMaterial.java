@@ -1,39 +1,58 @@
 package org.wdfeer.not_enough_potatoes;
 
-import net.minecraft.item.ArmorItem;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Identifier;
 
-import java.util.HashMap;
-import java.util.List;
+public class PotatoMaterial implements ArmorMaterial {
+    @Override
+    public int getDurability(EquipmentSlot slot) {
+        return 100;
+    }
 
-public class PotatoMaterial {
-    public static ArmorMaterial material;
+    @Override
+    public int getProtectionAmount(EquipmentSlot slot) {
+        switch (slot){
+            case HEAD, FEET -> {
+                return 1;
+            }
+            case CHEST, LEGS -> {
+                return 2;
+            }
+        }
+        return 0;
+    }
 
-    public static void Initialize(){
-        HashMap<ArmorItem.Type, Integer> defenseMap = new HashMap<>();
-        defenseMap.put(ArmorItem.Type.HELMET, 1);
-        defenseMap.put(ArmorItem.Type.CHESTPLATE, 2);
-        defenseMap.put(ArmorItem.Type.LEGGINGS, 2);
-        defenseMap.put(ArmorItem.Type.BOOTS, 1);
+    @Override
+    public int getEnchantability() {
+        return 8;
+    }
 
-        Identifier id = new Identifier(PotatoMod.MOD_ID, "potato");
+    @Override
+    public SoundEvent getEquipSound() {
+        return SoundEvents.ITEM_ARMOR_EQUIP_GENERIC;
+    }
 
-        material = new ArmorMaterial(defenseMap,
-                8,
-                SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
-                () -> Ingredient.ofItems(Items.POTATO),
-                List.of(new ArmorMaterial.Layer[]{
-                        new ArmorMaterial.Layer(id)
-                }),
-                0F,
-                0F);
+    @Override
+    public Ingredient getRepairIngredient() {
+        return Ingredient.ofItems(Items.POTATO);
+    }
 
-        Registry.register(Registries.ARMOR_MATERIAL, id, material);
+    @Override
+    public String getName() {
+        return "potato";
+    }
+
+    @Override
+    public float getToughness() {
+        return 0;
+    }
+
+    @Override
+    public float getKnockbackResistance() {
+        return 0;
     }
 }

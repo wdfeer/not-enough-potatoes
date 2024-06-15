@@ -1,18 +1,17 @@
 package org.wdfeer.not_enough_potatoes;
 
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-
-import java.util.Objects;
+import net.minecraft.nbt.NbtCompound;
 
 public class PotatoArmorPiece extends ArmorItem {
-    public PotatoArmorPiece(ArmorItem.Type type) {
-        super(Registries.ARMOR_MATERIAL.getEntry(PotatoMaterial.material), type, new Settings().component(PotatoCounterComponentType.INSTANCE, new PotatoCounterComponent(0)));
+    public PotatoArmorPiece(EquipmentSlot slot) {
+        super(new PotatoMaterial(), slot, new Settings());
     }
 
-    public static void OnPotatoEaten(PlayerEntity user){ // Accessed via an ItemMixin
+    public static void OnPotatoEaten(PlayerEntity user){
         user.getArmorItems().forEach(s ->{
             if (s.getItem() instanceof PotatoArmorPiece potatoArmorPiece)
                 potatoArmorPiece.OnPotatoEaten(s);
@@ -20,7 +19,7 @@ public class PotatoArmorPiece extends ArmorItem {
     }
 
     private void OnPotatoEaten(ItemStack stack){
-        PotatoCounterComponent counter = Objects.requireNonNull(stack.getComponents().get(PotatoCounterComponentType.INSTANCE));
-        counter.count++;
+        NbtCompound nbt = stack.getOrCreateNbt();
+        nbt.putInt("potatoes_eaten", nbt.getInt("potatoes_eaten") + 1);
     }
 }
