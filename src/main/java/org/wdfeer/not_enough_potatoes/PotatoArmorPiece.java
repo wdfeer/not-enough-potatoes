@@ -1,13 +1,12 @@
 package org.wdfeer.not_enough_potatoes;
 
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
@@ -22,7 +21,9 @@ public class PotatoArmorPiece extends ArmorItem {
         armorAttributeUuid = UUID.nameUUIDFromBytes(("potato_armor" + slot.getName()).getBytes());
     }
 
-    public static void OnPotatoEaten(PlayerEntity user){
+    public static final Item[] POTATOES = new Item[] {Items.POTATO};
+
+    public static void OnPotatoEaten(Entity user){
         user.getArmorItems().forEach(armor ->{
             if (armor.getItem() instanceof PotatoArmorPiece potatoArmorPiece)
                 potatoArmorPiece.OnPotatoEaten(armor);

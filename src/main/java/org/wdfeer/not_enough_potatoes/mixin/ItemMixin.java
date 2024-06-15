@@ -4,7 +4,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,11 +11,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.wdfeer.not_enough_potatoes.PotatoArmorPiece;
 
+import java.util.Arrays;
+
 @Mixin(Item.class)
 public class ItemMixin {
+
     @Inject(method = "finishUsing", at = @At("HEAD"))
     private void injectFinishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir){
-        if ((stack.isOf(Items.POTATO) || stack.isOf(Items.BAKED_POTATO) || stack.isOf(Items.POISONOUS_POTATO)) && user instanceof PlayerEntity player) {
+        if (Arrays.stream(PotatoArmorPiece.POTATOES).anyMatch(stack::isOf) && user instanceof PlayerEntity player) {
             PotatoArmorPiece.OnPotatoEaten(player);
         }
     }
