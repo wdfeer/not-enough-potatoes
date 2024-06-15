@@ -14,9 +14,9 @@ import org.wdfeer.not_enough_potatoes.PotatoArmorPiece;
 
 @Mixin(Item.class)
 public class ItemMixin {
-    @Inject(method = "finishUsing", at = @At("RETURN"))
+    @Inject(method = "finishUsing", at = @At("HEAD"))
     private void injectFinishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir){
-        if (stack.isOf(Items.POTATO) && user instanceof PlayerEntity player) {
+        if ((stack.isOf(Items.POTATO) || stack.isOf(Items.BAKED_POTATO) || stack.isOf(Items.POISONOUS_POTATO)) && user instanceof PlayerEntity player) {
             PotatoArmorPiece.OnPotatoEaten(player);
         }
     }
