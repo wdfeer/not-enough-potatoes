@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "not_enough_potatoes",
   "version": "${version}",
-  "name": "Not enough Potatoes",
+  "name": "Not Enough Potatoes",
   "description": "",
   "authors": ["wdfeer"],
   "contact": {
