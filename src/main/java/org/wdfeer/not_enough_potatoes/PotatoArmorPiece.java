@@ -41,7 +41,7 @@ public class PotatoArmorPiece extends ArmorItem {
 
         EntityAttributeModifier modifier = new EntityAttributeModifier(ARMOR_ATTRIBUTE_UUID,
                 "generic.armor",
-                potatoes,
+                Math.max(Math.log(potatoes), 1),
                 EntityAttributeModifier.Operation.ADDITION);
 
         nbt.remove("AttributeModifiers");
