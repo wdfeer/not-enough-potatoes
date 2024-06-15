@@ -1,11 +1,9 @@
 package org.wdfeer.not_enough_potatoes;
 
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
@@ -21,7 +19,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
         armorAttributeUuid = UUID.nameUUIDFromBytes(("potato_armor" + slot.getName()).getBytes());
     }
 
-    public static final Item[] POTATOES = new Item[] {Items.POTATO, Items.BAKED_POTATO, Items.POISONOUS_POTATO};
+    public static final double[] PROTECTION_MULTIPLIERS = new double[] {1, 2, 3, 1};
 
     private final UUID armorAttributeUuid;
     public void OnPotatoEaten(ItemStack stack){
@@ -31,7 +29,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
 
         EntityAttributeModifier modifier = new EntityAttributeModifier(armorAttributeUuid,
                 "generic.armor",
-                Math.max(Math.log(potatoes), 1),
+                Math.max(Math.log(potatoes) * PROTECTION_MULTIPLIERS[slot.getEntitySlotId()] / 3, 1),
                 EntityAttributeModifier.Operation.ADDITION);
 
         nbt.remove("AttributeModifiers");
