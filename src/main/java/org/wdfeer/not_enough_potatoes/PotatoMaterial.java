@@ -16,11 +16,8 @@ public class PotatoMaterial implements ArmorMaterial {
     @Override
     public int getProtectionAmount(EquipmentSlot slot) {
         switch (slot){
-            case HEAD, FEET -> {
+            case HEAD, FEET, CHEST, LEGS -> {
                 return 1;
-            }
-            case CHEST, LEGS -> {
-                return 2;
             }
         }
         return 0;

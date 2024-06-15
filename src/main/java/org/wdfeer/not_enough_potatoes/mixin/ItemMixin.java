@@ -17,7 +17,7 @@ public class ItemMixin {
     @Inject(method = "finishUsing", at = @At("RETURN"))
     private void injectFinishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir){
         if (stack.isOf(Items.POTATO) && user instanceof PlayerEntity player) {
-            PotatoArmorPiece.OnPotatoEaten(player);
+            PotatoArmorPiece.OnPotatoEaten(world, player);
         }
     }
 }
