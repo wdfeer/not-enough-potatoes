@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class PotatoArmorPiece extends ArmorItem {
+public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
     public PotatoArmorPiece(EquipmentSlot slot) {
         super(new PotatoMaterial(), slot, new Settings().group(ItemGroup.COMBAT));
         armorAttributeUuid = UUID.nameUUIDFromBytes(("potato_armor" + slot.getName()).getBytes());
@@ -23,15 +23,8 @@ public class PotatoArmorPiece extends ArmorItem {
 
     public static final Item[] POTATOES = new Item[] {Items.POTATO};
 
-    public static void OnPotatoEaten(Entity user){
-        user.getArmorItems().forEach(armor ->{
-            if (armor.getItem() instanceof PotatoArmorPiece potatoArmorPiece)
-                potatoArmorPiece.OnPotatoEaten(armor);
-        });
-    }
-
     private final UUID armorAttributeUuid;
-    private void OnPotatoEaten(ItemStack stack){
+    public void OnPotatoEaten(ItemStack stack){
         NbtCompound nbt = stack.getOrCreateNbt();
         int potatoes = nbt.getInt("potatoes_eaten") + 1;
         nbt.putInt("potatoes_eaten", potatoes);

@@ -22,7 +22,6 @@ public class DispenserBehavior {
             @Override
             public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
                 this.setSuccess(DispensePotato(pointer, stack));
-                if (isSuccess()) stack.decrement(1);
                 return stack;
             }
         };
@@ -49,7 +48,9 @@ public class DispenserBehavior {
         }
 
         LivingEntity livingEntity = (LivingEntity)list.get(0);
-        PotatoArmorPiece.OnPotatoEaten(livingEntity);
+        PotatoConsumer.OnPotatoEaten(livingEntity);
+        potato.decrement(1);
+
         return true;
     }
 }

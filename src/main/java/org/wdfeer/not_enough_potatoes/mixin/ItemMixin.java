@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.wdfeer.not_enough_potatoes.PotatoArmorPiece;
+import org.wdfeer.not_enough_potatoes.PotatoConsumer;
 
 import java.util.Arrays;
 
@@ -19,7 +20,7 @@ public class ItemMixin {
     @Inject(method = "finishUsing", at = @At("HEAD"))
     private void injectFinishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir){
         if (Arrays.stream(PotatoArmorPiece.POTATOES).anyMatch(stack::isOf) && user instanceof PlayerEntity player) {
-            PotatoArmorPiece.OnPotatoEaten(player);
+            PotatoConsumer.OnPotatoEaten(user);
         }
     }
 }
