@@ -21,7 +21,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
         armorAttributeUuid = UUID.nameUUIDFromBytes(("potato_armor" + slot.getName()).getBytes());
     }
 
-    public static final Item[] POTATOES = new Item[] {Items.POTATO};
+    public static final Item[] POTATOES = new Item[] {Items.POTATO, Items.BAKED_POTATO, Items.POISONOUS_POTATO};
 
     private final UUID armorAttributeUuid;
     public void OnPotatoEaten(ItemStack stack){

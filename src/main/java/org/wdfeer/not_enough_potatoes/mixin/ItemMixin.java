@@ -19,7 +19,7 @@ public class ItemMixin {
 
     @Inject(method = "finishUsing", at = @At("HEAD"))
     private void injectFinishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir){
-        if (Arrays.stream(PotatoArmorPiece.POTATOES).anyMatch(stack::isOf) && user instanceof PlayerEntity player) {
+        if (Arrays.stream(PotatoArmorPiece.POTATOES).anyMatch(stack::isOf) && user instanceof PlayerEntity) {
             PotatoConsumer.OnPotatoEaten(user);
         }
     }
