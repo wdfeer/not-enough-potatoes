@@ -13,7 +13,11 @@ public class PotatoArmorPiece extends ArmorItem {
     public static void OnPotatoEaten(PlayerEntity user){
         user.getArmorItems().forEach(s ->{
             if (s.getItem() instanceof PotatoArmorPiece potatoArmorPiece)
-                user.animateDamage(2);
+                potatoArmorPiece.OnPotatoEaten(s);
         });
+    }
+
+    private void OnPotatoEaten(ItemStack stack){
+
     }
 }
