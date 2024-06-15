@@ -18,14 +18,17 @@ import java.util.List;
 
 public class DispenserBehavior {
     public static void Initialize(){
+        var behavior = new FallibleItemDispenserBehavior() {
+            @Override
+            public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
+                this.setSuccess(DispensePotato(pointer, stack));
+                if (isSuccess()) stack.decrement(1);
+                return stack;
+            }
+        };
+
         for (int i = 0; i < PotatoArmorPiece.POTATOES.length; i++) {
-            DispenserBlock.registerBehavior(PotatoArmorPiece.POTATOES[i], new FallibleItemDispenserBehavior() {
-                @Override
-                public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-                    this.setSuccess(DispensePotato(pointer, stack));
-                    return stack;
-                }
-            });
+            DispenserBlock.registerBehavior(PotatoArmorPiece.POTATOES[i], behavior);
         }
     }
 
