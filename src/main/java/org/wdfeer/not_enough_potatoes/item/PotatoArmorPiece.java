@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.wdfeer.not_enough_potatoes.material.PotatoMaterial;
 
+import javax.swing.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,7 +21,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
         armorAttributeUuid = UUID.nameUUIDFromBytes(("potato_armor" + slot.getName()).getBytes());
     }
 
-    public static final double[] PROTECTION_MULTIPLIERS = new double[] {1, 2, 3, 1};
+    public static final double[] PROTECTION_MULTIPLIERS = new double[] {1/3d, 2/3d, 1, 1/3d};
 
     private final UUID armorAttributeUuid;
     public void onPotatoEaten(ItemStack stack){
@@ -28,15 +29,28 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
         int potatoes = nbt.getInt("potatoes_eaten") + 1;
         nbt.putInt("potatoes_eaten", potatoes);
 
-        EntityAttributeModifier modifier = new EntityAttributeModifier(armorAttributeUuid,
-                "generic.armor",
-                Math.max(Math.log(potatoes) * PROTECTION_MULTIPLIERS[slot.getEntitySlotId()] / 3, 1),
-                EntityAttributeModifier.Operation.ADDITION);
-
-        nbt.remove("AttributeModifiers");
-        stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR, modifier, slot);
+        setGenericArmor(stack, armorAttributeUuid, getProtection(potatoes));
 
         stack.setDamage(0);
+    }
+
+    private double getProtection(int potatoes){
+        return getProtection(potatoes, Math.E, slot);
+    }
+
+    public static double getProtection(int potatoes, double logBase, EquipmentSlot slot){
+        final int min = 1;
+        return Math.max(Math.log(potatoes)/Math.log(logBase) * PROTECTION_MULTIPLIERS[slot.getEntitySlotId()], min);
+    }
+
+    public static void setGenericArmor(ItemStack stack, UUID modifierUuid,double protection){
+        EntityAttributeModifier modifier = new EntityAttributeModifier(modifierUuid,
+                "generic.armor",
+                protection,
+                EntityAttributeModifier.Operation.ADDITION);
+
+        stack.getOrCreateNbt().remove("AttributeModifiers");
+        stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR, modifier, ((ArmorItem)stack.getItem()).getSlotType());
     }
 
     @Override
