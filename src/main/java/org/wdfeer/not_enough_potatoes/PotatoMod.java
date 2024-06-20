@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wdfeer.not_enough_potatoes.item.PotatoItems;
+import org.wdfeer.not_enough_potatoes.recipe.PotatoAdapterSmithingRecipe;
 
 public class PotatoMod implements ModInitializer {
     public static final String MOD_ID = "not_enough_potatoes";
@@ -11,7 +12,8 @@ public class PotatoMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        PotatoItems.Initialize();
-        DispenserBehavior.Initialize();
+        PotatoItems.initialize();
+        DispenserBehavior.initialize();
+        PotatoAdapterSmithingRecipe.register();
     }
 }

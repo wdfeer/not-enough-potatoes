@@ -10,17 +10,17 @@ import org.wdfeer.not_enough_potatoes.PotatoMod;
 public class PotatoItems {
     public static Item[] items;
 
-    private static Identifier GetIdentifier(String name){
+    private static Identifier getIdentifier(String name){
         return new Identifier(PotatoMod.MOD_ID, name);
     }
 
-    public static void Initialize(){
+    public static void initialize(){
         items = new Item[] {
-                Registry.register(Registry.ITEM, GetIdentifier("potato_helmet"), new PotatoArmorPiece(EquipmentSlot.HEAD)),
-                Registry.register(Registry.ITEM, GetIdentifier("potato_chestplate"), new PotatoArmorPiece(EquipmentSlot.CHEST)),
-                Registry.register(Registry.ITEM, GetIdentifier("potato_leggings"), new PotatoArmorPiece(EquipmentSlot.LEGS)),
-                Registry.register(Registry.ITEM, GetIdentifier("potato_boots"), new PotatoArmorPiece(EquipmentSlot.FEET)),
-                Registry.register(Registry.ITEM, GetIdentifier("potato_adapter"), new Item(new Item.Settings().group(ItemGroup.MATERIALS)))
+                Registry.register(Registry.ITEM, getIdentifier("potato_helmet"), new PotatoArmorPiece(EquipmentSlot.HEAD)),
+                Registry.register(Registry.ITEM, getIdentifier("potato_chestplate"), new PotatoArmorPiece(EquipmentSlot.CHEST)),
+                Registry.register(Registry.ITEM, getIdentifier("potato_leggings"), new PotatoArmorPiece(EquipmentSlot.LEGS)),
+                Registry.register(Registry.ITEM, getIdentifier("potato_boots"), new PotatoArmorPiece(EquipmentSlot.FEET)),
+                Registry.register(Registry.ITEM, getIdentifier("potato_adapter"), new Item(new Item.Settings().group(ItemGroup.MATERIALS)))
         };
     }
 }

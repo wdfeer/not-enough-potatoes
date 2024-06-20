@@ -9,4 +9,8 @@ public class PotatoAdapterSmithingRecipe extends SmithingRecipe {
     public PotatoAdapterSmithingRecipe(Identifier id, Ingredient base, Ingredient addition, ItemStack result) {
         super(id, base, addition, result);
     }
+
+    public static void register(){
+        
+    }
 }

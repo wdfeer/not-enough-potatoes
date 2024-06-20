@@ -23,7 +23,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
     public static final double[] PROTECTION_MULTIPLIERS = new double[] {1, 2, 3, 1};
 
     private final UUID armorAttributeUuid;
-    public void OnPotatoEaten(ItemStack stack){
+    public void onPotatoEaten(ItemStack stack){
         NbtCompound nbt = stack.getOrCreateNbt();
         int potatoes = nbt.getInt("potatoes_eaten") + 1;
         nbt.putInt("potatoes_eaten", potatoes);

@@ -15,7 +15,7 @@ import org.wdfeer.not_enough_potatoes.item.PotatoConsumer;
 import java.util.List;
 
 public class DispenserBehavior {
-    public static void Initialize(){
+    public static void initialize(){
         var behavior = new FallibleItemDispenserBehavior() {
             @Override
             public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
@@ -46,7 +46,7 @@ public class DispenserBehavior {
         }
 
         LivingEntity livingEntity = (LivingEntity)list.get(0);
-        PotatoConsumer.OnPotatoEaten(livingEntity);
+        PotatoConsumer.onPotatoEaten(livingEntity);
         potato.decrement(1);
 
         return true;
