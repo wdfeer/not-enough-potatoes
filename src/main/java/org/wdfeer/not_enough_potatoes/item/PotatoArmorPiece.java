@@ -53,8 +53,11 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
         stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR, modifier, ((ArmorItem)stack.getItem()).getSlotType());
     }
 
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.of("Potatoes eaten: " + stack.getOrCreateNbt().get("potatoes_eaten")));
+    public static Text getTooltip(int potatoes){
+        return Text.of("Potatoes eaten: " + potatoes);
+    }
+
+    public static Text getTooltip(ItemStack stack){
+        return getTooltip(stack.getOrCreateNbt().getInt("potatoes_eaten"));
     }
 }
