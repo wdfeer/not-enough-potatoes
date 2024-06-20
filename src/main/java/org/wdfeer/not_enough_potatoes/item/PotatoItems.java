@@ -1,11 +1,11 @@
-package org.wdfeer.not_enough_potatoes;
+package org.wdfeer.not_enough_potatoes.item;
 
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import org.wdfeer.not_enough_potatoes.PotatoMod;
 
 public class PotatoItems {
     public static Item[] items;

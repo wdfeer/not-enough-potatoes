@@ -1,4 +1,4 @@
-package org.wdfeer.not_enough_potatoes;
+package org.wdfeer.not_enough_potatoes.item;
 
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
@@ -9,6 +9,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import org.wdfeer.not_enough_potatoes.material.PotatoMaterial;
 
 import java.util.List;
 import java.util.UUID;

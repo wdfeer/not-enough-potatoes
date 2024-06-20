@@ -1,4 +1,4 @@
-package org.wdfeer.not_enough_potatoes;
+package org.wdfeer.not_enough_potatoes.item;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;

@@ -9,8 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.wdfeer.not_enough_potatoes.PotatoArmorPiece;
-import org.wdfeer.not_enough_potatoes.PotatoConsumer;
+import org.wdfeer.not_enough_potatoes.item.PotatoConsumer;
 
 import java.util.Arrays;
 

@@ -9,6 +9,8 @@ import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
+import org.wdfeer.not_enough_potatoes.item.PotatoArmorPiece;
+import org.wdfeer.not_enough_potatoes.item.PotatoConsumer;
 
 import java.util.List;
 
@@ -34,7 +36,7 @@ public class DispenserBehavior {
                 EntityPredicates.EXCEPT_SPECTATOR.and(entity -> {
                     var armors = entity.getArmorItems();
                     for (ItemStack stack : armors){
-                        if (stack.getItem() instanceof  PotatoArmorPiece) return true;
+                        if (stack.getItem() instanceof PotatoArmorPiece) return true;
                     }
                     return false;
                 }));
