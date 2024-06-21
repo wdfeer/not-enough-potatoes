@@ -1,18 +1,13 @@
 package org.wdfeer.not_enough_potatoes.item;
 
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 import org.wdfeer.not_enough_potatoes.material.PotatoMaterial;
 
-import javax.swing.*;
-import java.util.List;
 import java.util.UUID;
 
 public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
@@ -43,14 +38,19 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
         return Math.max(Math.log(potatoes)/Math.log(logBase) * PROTECTION_MULTIPLIERS[slot.getEntitySlotId()], min);
     }
 
-    public static void setGenericArmor(ItemStack stack, UUID modifierUuid,double protection){
-        EntityAttributeModifier modifier = new EntityAttributeModifier(modifierUuid,
+    public static void setGenericArmor(ItemStack stack, UUID modifierUuid, double protection){
+        ArmorItem armor = (ArmorItem) stack.getItem();
+        EquipmentSlot slot = (armor).getSlotType();
+
+        armor.getAttributeModifiers(slot).forEach((entityAttribute, entityAttributeModifier)
+                -> stack.addAttributeModifier(entityAttribute, entityAttributeModifier, slot));
+
+        EntityAttributeModifier potatoArmorAttribute = new EntityAttributeModifier(modifierUuid,
                 "generic.armor",
                 protection,
                 EntityAttributeModifier.Operation.ADDITION);
 
-        stack.getOrCreateNbt().remove("AttributeModifiers");
-        stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR, modifier, ((ArmorItem)stack.getItem()).getSlotType());
+        stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR, potatoArmorAttribute, slot);
     }
 
     public static Text getTooltip(int potatoes){
