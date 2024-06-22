@@ -34,20 +34,6 @@ public class PotatoAdapter extends Item {
 
             return TypedActionResult.success(stack);
         }
-
-//        return getAdaptable(user) == null ? TypedActionResult.fail(user.getActiveItem()) : TypedActionResult.success(user.getActiveItem());
-    }
-
-    @Override
-    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        ItemStack adaptable = getAdaptable(user);
-
-        if (adaptable == null) return super.finishUsing(stack, world, user);
-        else {
-//            adapt(stack, adaptable);
-
-            return stack;
-        }
     }
 
     private static void adapt(ItemStack stack, ItemStack armor){
