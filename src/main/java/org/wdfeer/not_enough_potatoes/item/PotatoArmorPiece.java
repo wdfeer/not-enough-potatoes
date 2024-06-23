@@ -7,6 +7,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
@@ -17,7 +18,7 @@ import java.util.UUID;
 import static org.wdfeer.not_enough_potatoes.util.AttributeHelper.addDefaultArmorAttributes;
 import static org.wdfeer.not_enough_potatoes.util.AttributeHelper.removeAttributeWithUuid;
 
-public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
+public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer, GroupedItem {
     public PotatoArmorPiece(Type slot) {
         super(new PotatoMaterial(), slot, new FabricItemSettings());
         armorAttributeUuid = UUID.nameUUIDFromBytes(("potato_armor" + slot.getName()).getBytes());
@@ -74,5 +75,10 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
 
     public static Text getTooltip(ItemStack stack){
         return getTooltip(stack.getOrCreateNbt().getInt("potatoes_eaten"));
+    }
+
+    @Override
+    public RegistryKey<ItemGroup> getItemGroup() {
+        return ItemGroups.COMBAT;
     }
 }

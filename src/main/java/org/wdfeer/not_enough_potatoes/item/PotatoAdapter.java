@@ -5,6 +5,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -14,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class PotatoAdapter extends Item {
+public class PotatoAdapter extends Item implements GroupedItem {
     public PotatoAdapter() {
         super(new FabricItemSettings());
     }
@@ -51,5 +52,10 @@ public class PotatoAdapter extends Item {
         armor.getOrCreateNbt().putInt("potatoes_eaten", 0);
 
         stack.decrement(1);
+    }
+
+    @Override
+    public RegistryKey<ItemGroup> getItemGroup() {
+        return ItemGroups.COMBAT;
     }
 }
