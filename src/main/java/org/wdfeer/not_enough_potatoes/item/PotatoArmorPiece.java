@@ -6,6 +6,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import org.wdfeer.not_enough_potatoes.material.PotatoMaterial;
 
 import java.util.UUID;
@@ -60,7 +61,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
 
 
     public static Text getTooltip(int potatoes){
-        return Text.of("Potatoes eaten: " + potatoes);
+        return Text.translatable("not_enough_potatoes.potatoes_eaten").append(Integer.toString(potatoes)).formatted(Formatting.YELLOW);
     }
 
     public static Text getTooltip(ItemStack stack){

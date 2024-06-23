@@ -4,13 +4,11 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.core.tools.picocli.CommandLine;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -22,7 +20,7 @@ public class PotatoAdapter extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.not_enough_potatoes.potato_adapter.tooltip").fillStyle(Style.EMPTY.withColor(Formatting.YELLOW)));
+        tooltip.add(Text.translatable("item.not_enough_potatoes.potato_adapter.tooltip").formatted(Formatting.YELLOW));
     }
 
     @Nullable

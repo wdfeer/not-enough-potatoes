@@ -4,6 +4,8 @@
   "item.not_enough_potatoes.potato_leggings": "Potato Leggings",
   "item.not_enough_potatoes.potato_boots": "Potato Boots",
   "item.not_enough_potatoes.potato_adapter": "Potato Shard",
+
+  "not_enough_potatoes.potatoes_eaten": "Potatoes Eaten: ",
   "item.not_enough_potatoes.potato_adapter.tooltip": "Right Click to upgrade equipped armor"
 }
 
