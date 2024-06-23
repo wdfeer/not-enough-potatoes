@@ -18,15 +18,19 @@ public interface PotatoConsumer {
         user.getItemsEquipped().forEach(stack ->{
             if (stack.getItem() instanceof PotatoConsumer potatoEater)
                 potatoEater.onPotatoEaten(stack);
-            else if (stack.getItem() instanceof ArmorItem armor && stack.getOrCreateNbt().contains("potatoes_eaten")) {
+            else if (isPotatoConsumer(stack)) {
                 NbtCompound nbt = stack.getNbt();
                 assert nbt != null;
                 int potatoes = nbt.getInt("potatoes_eaten") + 1;
                 nbt.putInt("potatoes_eaten", potatoes);
                 
                 UUID modifierUuid = UUID.nameUUIDFromBytes(("potato_adapted" + stack.getItem().getName()).getBytes());
-                PotatoArmorPiece.setGenericArmor(stack, modifierUuid, PotatoArmorPiece.getProtection(potatoes, 3, armor.getSlotType()));
+                PotatoArmorPiece.setGenericArmor(stack, modifierUuid, PotatoArmorPiece.getProtection(potatoes, 3, ((ArmorItem)stack.getItem()).getSlotType()));
             }
         });
+    }
+
+    static boolean isPotatoConsumer(ItemStack stack){
+        return stack.getItem() instanceof PotatoConsumer || (stack.getItem() instanceof ArmorItem && stack.hasNbt() && stack.getOrCreateNbt().contains("potatoes_eaten"));
     }
 }

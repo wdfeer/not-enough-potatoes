@@ -36,7 +36,7 @@ public class DispenserBehavior {
                 EntityPredicates.EXCEPT_SPECTATOR.and(entity -> {
                     var armors = entity.getArmorItems();
                     for (ItemStack stack : armors){
-                        if (stack.getItem() instanceof PotatoArmorPiece) return true;
+                        if (PotatoConsumer.isPotatoConsumer(stack)) return true;
                     }
                     return false;
                 }));
