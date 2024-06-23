@@ -4,11 +4,14 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.*;
-import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.*;
 import net.minecraft.text.Text;
 import org.wdfeer.not_enough_potatoes.material.PotatoMaterial;
 
 import java.util.UUID;
+
+import static org.wdfeer.not_enough_potatoes.util.AttributeHelper.addDefaultArmorAttributes;
+import static org.wdfeer.not_enough_potatoes.util.AttributeHelper.removeAttributeWithUuid;
 
 public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
     public PotatoArmorPiece(EquipmentSlot slot) {
@@ -34,7 +37,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
     }
 
     public static double getProtection(int potatoes, double logBase, EquipmentSlot slot){
-        final int min = 1;
+        final int min = 0;
         return Math.max(Math.log(potatoes)/Math.log(logBase) * PROTECTION_MULTIPLIERS[slot.getEntitySlotId()], min);
     }
 
@@ -42,16 +45,19 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
         ArmorItem armor = (ArmorItem) stack.getItem();
         EquipmentSlot slot = (armor).getSlotType();
 
-        armor.getAttributeModifiers(slot).forEach((entityAttribute, entityAttributeModifier)
-                -> stack.addAttributeModifier(entityAttribute, entityAttributeModifier, slot));
+        removeAttributeWithUuid(stack, modifierUuid);
+        if (protection > 0) {
+            EntityAttributeModifier potatoArmorAttribute = new EntityAttributeModifier(modifierUuid,
+                    "generic.armor",
+                    protection,
+                    EntityAttributeModifier.Operation.ADDITION);
 
-        EntityAttributeModifier potatoArmorAttribute = new EntityAttributeModifier(modifierUuid,
-                "generic.armor",
-                protection,
-                EntityAttributeModifier.Operation.ADDITION);
+            stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR, potatoArmorAttribute, slot);
+        }
 
-        stack.addAttributeModifier(EntityAttributes.GENERIC_ARMOR, potatoArmorAttribute, slot);
+        addDefaultArmorAttributes(stack, armor);
     }
+
 
     public static Text getTooltip(int potatoes){
         return Text.of("Potatoes eaten: " + potatoes);
