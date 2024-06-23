@@ -1,7 +1,6 @@
 package org.wdfeer.not_enough_potatoes.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -29,9 +28,7 @@ public class PotatoItems {
 
         for (Item item : items){
             if (item instanceof GroupedItem groupedItem){
-                ItemGroupEvents.modifyEntriesEvent(groupedItem.getItemGroup()).register(content -> {
-                    content.add(item);
-                });
+                ItemGroupEvents.modifyEntriesEvent(groupedItem.getItemGroup()).register(content -> content.add(item));
             }
         }
     }

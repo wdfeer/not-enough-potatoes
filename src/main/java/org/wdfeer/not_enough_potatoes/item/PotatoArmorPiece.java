@@ -48,7 +48,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer, Group
 
     public static double getProtection(int potatoes, double logBase, EquipmentSlot slot){
         final int min = 0;
-        return Math.max(Math.log(potatoes)/Math.log(logBase) * PROTECTION_MULTIPLIERS[slot.getEntitySlotId()], min);
+        return Math.max(Math.log(potatoes + 1)/Math.log(logBase) * PROTECTION_MULTIPLIERS[slot.getEntitySlotId()], min);
     }
 
     public static void setGenericArmor(ItemStack stack, UUID modifierUuid, double protection){
