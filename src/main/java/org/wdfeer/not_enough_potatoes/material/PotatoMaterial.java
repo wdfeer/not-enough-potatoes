@@ -1,26 +1,31 @@
 package org.wdfeer.not_enough_potatoes.material;
 
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
+import static net.minecraft.entity.EquipmentSlot.FEET;
+import static net.minecraft.entity.EquipmentSlot.LEGS;
+import static net.minecraft.item.Items.CHEST;
+
 public class PotatoMaterial implements ArmorMaterial {
     @Override
-    public int getDurability(EquipmentSlot slot) {
+    public int getDurability(ArmorItem.Type type) {
         return 100;
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot slot) {
-        switch (slot){
-            case FEET, CHEST -> {
+    public int getProtection(ArmorItem.Type type) {
+        switch (type){
+            case HELMET, BOOTS -> {
                 return 1;
             }
-            case HEAD, LEGS -> {
-                return 2;
+            case CHESTPLATE, LEGGINGS ->{
+                return  2;
             }
         }
         return 0;

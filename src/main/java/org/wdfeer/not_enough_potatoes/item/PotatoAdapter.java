@@ -1,5 +1,6 @@
 package org.wdfeer.not_enough_potatoes.item;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class PotatoAdapter extends Item {
     public PotatoAdapter() {
-        super(new Item.Settings().group(ItemGroup.MATERIALS));
+        super(new FabricItemSettings());
     }
 
     @Override

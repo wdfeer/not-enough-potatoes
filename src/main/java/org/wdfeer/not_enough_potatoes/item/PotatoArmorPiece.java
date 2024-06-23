@@ -1,5 +1,6 @@
 package org.wdfeer.not_enough_potatoes.item;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -17,8 +18,8 @@ import static org.wdfeer.not_enough_potatoes.util.AttributeHelper.addDefaultArmo
 import static org.wdfeer.not_enough_potatoes.util.AttributeHelper.removeAttributeWithUuid;
 
 public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
-    public PotatoArmorPiece(EquipmentSlot slot) {
-        super(new PotatoMaterial(), slot, new Settings().group(ItemGroup.COMBAT));
+    public PotatoArmorPiece(Type slot) {
+        super(new PotatoMaterial(), slot, new FabricItemSettings());
         armorAttributeUuid = UUID.nameUUIDFromBytes(("potato_armor" + slot.getName()).getBytes());
     }
 
@@ -41,7 +42,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
     }
 
     private double getProtection(int potatoes){
-        return getProtection(potatoes, Math.E, slot);
+        return getProtection(potatoes, Math.E, type.getEquipmentSlot());
     }
 
     public static double getProtection(int potatoes, double logBase, EquipmentSlot slot){
