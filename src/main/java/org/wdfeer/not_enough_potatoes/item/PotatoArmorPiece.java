@@ -3,10 +3,12 @@ package org.wdfeer.not_enough_potatoes.item;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.world.World;
 import org.wdfeer.not_enough_potatoes.material.PotatoMaterial;
 
 import java.util.UUID;
@@ -34,7 +36,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
     }
 
     private double getProtection(int potatoes){
-        return getProtection(potatoes, 2, slot);
+        return getProtection(potatoes, Math.E, slot);
     }
 
     public static double getProtection(int potatoes, double logBase, EquipmentSlot slot){
