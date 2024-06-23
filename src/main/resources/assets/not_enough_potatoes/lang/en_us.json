@@ -3,6 +3,7 @@
   "item.not_enough_potatoes.potato_chestplate": "Potato Chestplate",
   "item.not_enough_potatoes.potato_leggings": "Potato Leggings",
   "item.not_enough_potatoes.potato_boots": "Potato Boots",
-  "item.not_enough_potatoes.potato_adapter": "Potato Shard"
+  "item.not_enough_potatoes.potato_adapter": "Potato Shard",
+  "item.not_enough_potatoes.potato_adapter.tooltip": "Right Click to upgrade equipped armor"
 }
 
