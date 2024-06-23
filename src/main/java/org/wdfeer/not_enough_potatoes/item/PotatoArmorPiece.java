@@ -33,7 +33,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
     }
 
     private double getProtection(int potatoes){
-        return getProtection(potatoes, Math.E, slot);
+        return getProtection(potatoes, 2, slot);
     }
 
     public static double getProtection(int potatoes, double logBase, EquipmentSlot slot){

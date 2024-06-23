@@ -25,7 +25,7 @@ public interface PotatoConsumer {
                 nbt.putInt("potatoes_eaten", potatoes);
                 
                 UUID modifierUuid = UUID.nameUUIDFromBytes(("potato_adapted" + stack.getItem().getName()).getBytes());
-                PotatoArmorPiece.setGenericArmor(stack, modifierUuid, PotatoArmorPiece.getProtection(potatoes, 3, ((ArmorItem)stack.getItem()).getSlotType()));
+                PotatoArmorPiece.setGenericArmor(stack, modifierUuid, PotatoArmorPiece.getProtection(potatoes, 4, ((ArmorItem)stack.getItem()).getSlotType()));
             }
         });
     }
