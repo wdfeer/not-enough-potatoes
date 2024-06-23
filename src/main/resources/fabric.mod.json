@@ -12,9 +12,6 @@
   "icon": "assets/not_enough_potatoes/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "org.wdfeer.not_enough_potatoes.client.PotatoModClient"
-    ],
     "main": [
       "org.wdfeer.not_enough_potatoes.PotatoMod"
     ]
