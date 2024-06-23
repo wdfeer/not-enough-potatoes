@@ -3,11 +3,14 @@
   "key": {
     "X": {
       "item": "minecraft:potato"
+    },
+    "Y": {
+      "item": "minecraft:diamond"
     }
   },
   "pattern": [
     "XXX",
-    "X X",
+    "XYX",
     "XXX"
   ],
   "result": {
