@@ -22,6 +22,11 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer {
         armorAttributeUuid = UUID.nameUUIDFromBytes(("potato_armor" + slot.getName()).getBytes());
     }
 
+    @Override
+    public void onCraft(ItemStack stack, World world, PlayerEntity player) {
+        stack.getOrCreateNbt().putInt("potatoes_eaten", 0);
+    }
+
     public static final double[] PROTECTION_MULTIPLIERS = new double[] {1/3d, 2/3d, 1, 1/3d};
 
     private final UUID armorAttributeUuid;
