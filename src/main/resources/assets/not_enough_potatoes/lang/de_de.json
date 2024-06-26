@@ -1,0 +1,11 @@
+{
+  "item.not_enough_potatoes.potato_helmet": "Kartoffelhelm",
+  "item.not_enough_potatoes.potato_chestplate": "Kartoffelharnisch",
+  "item.not_enough_potatoes.potato_leggings": "Kartoffelbeinschutz",
+  "item.not_enough_potatoes.potato_boots": "Kartoffelstiefel",
+  "item.not_enough_potatoes.potato_adapter": "Kartoffelscherbe",
+
+  "not_enough_potatoes.potatoes_eaten": "Kartoffeln gegessen: ",
+  "item.not_enough_potatoes.potato_adapter.tooltip": "Rechtsklick, um die ausgerüstete Rüstung aufzurüsten"
+}
+
