@@ -6,6 +6,10 @@
   "item.not_enough_potatoes.potato_adapter": "Kartoffelscherbe",
 
   "not_enough_potatoes.potatoes_eaten": "Kartoffeln gegessen: ",
-  "item.not_enough_potatoes.potato_adapter.tooltip": "Rechtsklick, um die ausgerüstete Rüstung aufzurüsten"
+  "item.not_enough_potatoes.potato_adapter.tooltip": "Rechtsklick, um die ausgerüstete Rüstung aufzurüsten",
+
+  "not_enough_potatoes.midnightconfig.title": "Not Enough Potatoes - Konfiguration",
+  "not_enough_potatoes.midnightconfig.potatoArmorLogBase": "Logarithmenbasis der Kartoffelrüstung",
+  "not_enough_potatoes.midnightconfig.potatoShardLogBase": "Logarithmenbasis anderer Rüstung"
 }
 
