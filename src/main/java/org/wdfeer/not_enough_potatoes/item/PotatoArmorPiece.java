@@ -17,6 +17,7 @@ import java.util.UUID;
 
 import static org.wdfeer.not_enough_potatoes.util.AttributeHelper.addDefaultArmorAttributes;
 import static org.wdfeer.not_enough_potatoes.util.AttributeHelper.removeAttributeWithUuid;
+import static org.wdfeer.not_enough_potatoes.util.ProtectionCalculator.getPotatoArmorProtection;
 
 public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer, GroupedItem {
     public PotatoArmorPiece(Type slot) {
@@ -29,7 +30,6 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer, Group
         stack.getOrCreateNbt().putInt("potatoes_eaten", 0);
     }
 
-    public static final double[] PROTECTION_MULTIPLIERS = new double[] {1/3d, 2/3d, 1, 1/3d};
 
     private final UUID armorAttributeUuid;
     public void onPotatoEaten(ItemStack stack){
@@ -43,12 +43,7 @@ public class PotatoArmorPiece extends ArmorItem implements PotatoConsumer, Group
     }
 
     private double getProtection(int potatoes){
-        return getProtection(potatoes, Math.E, type.getEquipmentSlot());
-    }
-
-    public static double getProtection(int potatoes, double logBase, EquipmentSlot slot){
-        final int min = 0;
-        return Math.max(Math.log(potatoes + 1)/Math.log(logBase) * PROTECTION_MULTIPLIERS[slot.getEntitySlotId()], min);
+        return getPotatoArmorProtection(potatoes, type.getEquipmentSlot());
     }
 
     public static void setGenericArmor(ItemStack stack, UUID modifierUuid, double protection){

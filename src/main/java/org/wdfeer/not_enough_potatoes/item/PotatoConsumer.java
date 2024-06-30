@@ -9,6 +9,8 @@ import net.minecraft.nbt.NbtCompound;
 
 import java.util.UUID;
 
+import static org.wdfeer.not_enough_potatoes.util.ProtectionCalculator.getPotatoShardProtection;
+
 public interface PotatoConsumer {
     void onPotatoEaten(ItemStack stack);
 
@@ -25,7 +27,7 @@ public interface PotatoConsumer {
                 nbt.putInt("potatoes_eaten", potatoes);
                 
                 UUID modifierUuid = UUID.nameUUIDFromBytes(("potato_adapted" + stack.getItem().getName()).getBytes());
-                PotatoArmorPiece.setGenericArmor(stack, modifierUuid, PotatoArmorPiece.getProtection(potatoes, 6, ((ArmorItem)stack.getItem()).getSlotType()));
+                PotatoArmorPiece.setGenericArmor(stack, modifierUuid, getPotatoShardProtection(potatoes, ((ArmorItem)stack.getItem()).getSlotType()));
             }
         });
     }
