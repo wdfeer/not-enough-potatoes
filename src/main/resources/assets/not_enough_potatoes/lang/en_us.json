@@ -9,6 +9,7 @@
   "item.not_enough_potatoes.potato_adapter.tooltip": "Right Click to upgrade equipped armor",
 
   "not_enough_potatoes.midnightconfig.title": "Not Enough Potatoes - Config",
+  "not_enough_potatoes.midnightconfig.logarithmNote": "These numbers are the base of the logarithm that calculates protection. Higher values mean less armor.",
   "not_enough_potatoes.midnightconfig.potatoArmorLogBase": "Potato Armor logarithm base",
   "not_enough_potatoes.midnightconfig.potatoShardLogBase": "Potato Shard logarithm base"
 }

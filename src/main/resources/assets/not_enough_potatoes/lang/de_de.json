@@ -9,6 +9,7 @@
   "item.not_enough_potatoes.potato_adapter.tooltip": "Rechtsklick, um die ausgerüstete Rüstung aufzurüsten",
 
   "not_enough_potatoes.midnightconfig.title": "Not Enough Potatoes - Konfiguration",
+  "not_enough_potatoes.midnightconfig.logarithmNote": "Diese Zahlen sind Basen der Logarithmen, mit denen der Rüstungswert berechnet wird. Je höher der Wert, desto weniger Rüstung.",
   "not_enough_potatoes.midnightconfig.potatoArmorLogBase": "Logarithmenbasis der Kartoffelrüstung",
   "not_enough_potatoes.midnightconfig.potatoShardLogBase": "Logarithmenbasis anderer Rüstung"
 }
