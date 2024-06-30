@@ -3,10 +3,12 @@
   "id": "not_enough_potatoes",
   "version": "${version}",
   "name": "Not Enough Potatoes",
-  "description": "",
+  "description": "Improve your armor with every consumed potato!",
   "authors": ["wdfeer"],
   "contact": {
-    "repo": "https://github.com/wdfeer/not-enough-potatoes"
+    "homepage": "https://modrinth.com/mod/not-enough-potatoes",
+    "repo": "https://github.com/wdfeer/not-enough-potatoes",
+    "sources": "https://github.com/wdfeer/not-enough-potatoes"
   },
   "license": "GPL-3.0",
   "icon": "assets/not_enough_potatoes/icon.png",
