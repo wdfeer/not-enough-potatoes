@@ -7,8 +7,8 @@ public class ProtectionConfig extends MidnightConfig {
     public static Comment logarithmNote = null;
 
     @Entry(min = 1.1, max = 1e6)
-    public static double potatoArmorLogBase = 1;
+    public static double potatoArmorLogBase = Math.E;
 
     @Entry(min = 1.1, max = 1e6)
-    public static double potatoShardLogBase = 1;
+    public static double potatoShardLogBase = 6;
 }
