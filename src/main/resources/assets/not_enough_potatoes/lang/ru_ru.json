@@ -1,0 +1,15 @@
+{
+  "item.not_enough_potatoes.potato_helmet": "Картофельный шлем",
+  "item.not_enough_potatoes.potato_chestplate": "Картофельная нагрудник",
+  "item.not_enough_potatoes.potato_leggings": "Картофельные поножи",
+  "item.not_enough_potatoes.potato_boots": "Картофельные ботинки",
+  "item.not_enough_potatoes.potato_adapter": "Картофельный осколок",
+
+  "not_enough_potatoes.potatoes_eaten": "Съедено картофеля: ",
+  "item.not_enough_potatoes.potato_adapter.tooltip": "ПКМ для улучшения брони",
+
+  "not_enough_potatoes.midnightconfig.title": "Not Enough Potatoes - Конфигурация",
+  "not_enough_potatoes.midnightconfig.logarithmNote": "Эти числа - основание логарифма, который определяет защиту. Чем высше число, тем меньше брони.",
+  "not_enough_potatoes.midnightconfig.potatoArmorLogBase": "Основание логарифма для картофельной брони",
+  "not_enough_potatoes.midnightconfig.potatoShardLogBase": "Основание логарифма для картофельного обсидиана"
+}
