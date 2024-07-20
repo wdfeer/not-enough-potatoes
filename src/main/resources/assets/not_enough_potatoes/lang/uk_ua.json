@@ -1,0 +1,15 @@
+{
+  "item.not_enough_potatoes.potato_helmet": "Картопляний шолом",
+  "item.not_enough_potatoes.potato_chestplate": "Картопляний нагрудник",
+  "item.not_enough_potatoes.potato_leggings": "Картопляні наголінники",
+  "item.not_enough_potatoes.potato_boots": "Картопляні чоботи",
+  "item.not_enough_potatoes.potato_adapter": "Картопляний уламок",
+
+  "not_enough_potatoes.potatoes_eaten": "З'їдено картоплі: ",
+  "item.not_enough_potatoes.potato_adapter.tooltip": "ПКМ для покращення екіпірованої броні",
+
+  "not_enough_potatoes.midnightconfig.title": "Not Enough Potatoes - Налаштування",
+  "not_enough_potatoes.midnightconfig.logarithmNote": "Ці числа - основи логарифмів, які обчислюють захист. Чим вище значення, тим менше захисту.",
+  "not_enough_potatoes.midnightconfig.potatoArmorLogBase": "Основа логарифму картопляної броні",
+  "not_enough_potatoes.midnightconfig.potatoShardLogBase": "Основа логарифму картопляного осколка"
+}
