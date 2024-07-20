@@ -8,8 +8,8 @@
   "not_enough_potatoes.potatoes_eaten": "З'їдено картоплі: ",
   "item.not_enough_potatoes.potato_adapter.tooltip": "ПКМ для покращення екіпірованої броні",
 
-  "not_enough_potatoes.midnightconfig.title": "Not Enough Potatoes - Налаштування",
+  "not_enough_potatoes.midnightconfig.title": "Конфігурація Not Enough Potatoes",
   "not_enough_potatoes.midnightconfig.logarithmNote": "Ці числа - основи логарифмів, які обчислюють захист. Чим вище значення, тим менше захисту.",
   "not_enough_potatoes.midnightconfig.potatoArmorLogBase": "Основа логарифму картопляної броні",
-  "not_enough_potatoes.midnightconfig.potatoShardLogBase": "Основа логарифму картопляного осколка"
+  "not_enough_potatoes.midnightconfig.potatoShardLogBase": "Основа логарифму картопляного уламку"
 }
